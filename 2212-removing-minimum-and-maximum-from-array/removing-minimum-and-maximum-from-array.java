@@ -18,20 +18,15 @@ class Solution {
             left = right;
             right = temp;
         }
-            
-        int ans = n;
         
-        for (int i = 0; i <= n; i++) {
-            int extra = 0;
-            
-            if (right >= i)
-                extra = n - right;
-            else if (left >= i)
-                extra = n - left;
-                
-            ans = Math.min(ans, i + extra);
-        }
+        int front =left + 1;
+
+        int back = n - right;
+   
+        int combo = (right + 1) + (n - left);
+
+        return Math.min(front, Math.min(back, combo));
         
-        return ans;
+      
     }
 }
