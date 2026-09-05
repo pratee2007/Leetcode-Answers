@@ -1,16 +1,13 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int n = nums.length;
-        if (n == 1) return nums[0];
+        //moore's voting algo
 
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for (int ele : nums) {
-            map.put(ele, map.getOrDefault(ele,0)+1);
+        int ans=0, count=0;
+        for(int num: nums){
+            if(count==0) ans=num;
+            if(ans==num) count++;
+            else count--;
         }
-
-        for (int key : map.keySet()) {
-            if (map.get(key) > n/2) return key;
-        }
-        return -1;
+        return ans;
     }
 }
