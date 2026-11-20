@@ -1,11 +1,11 @@
 class Solution {
     public String mapWordWeights(String[] words, int[] weights) {
-        String s ="";
+        StringBuilder s = new StringBuilder();
         for(String s1 : words){
-            s = s + letter(s1,weights);
+            s.append(letter(s1,weights));
         }
 
-        return s;
+        return s.toString();
         
     }
     
